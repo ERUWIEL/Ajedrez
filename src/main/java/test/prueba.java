@@ -41,7 +41,7 @@ public class prueba {
         for (Movimiento move : movimientosTorre) {
             System.out.printf("De (%d,%d) a (%d,%d)\n", move.from.row, move.from.col, move.to.row, move.to.col);
         }
-        
+        //este comentario lo hago desde mi pc para github!
     }
 
 }
