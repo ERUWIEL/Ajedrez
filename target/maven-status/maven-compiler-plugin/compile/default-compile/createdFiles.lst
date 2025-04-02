@@ -1,0 +1,12 @@
+piezas\Reina.class
+piezas\Pieza.class
+test\prueba.class
+piezas\Alfil.class
+piezas\Peon.class
+tablero\Casilla.class
+normas\Color.class
+piezas\Caballo.class
+piezas\Torre.class
+piezas\Rey.class
+normas\Movimiento.class
+tablero\Tablero.class
