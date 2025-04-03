@@ -1,10 +1,11 @@
 package piezas;
 
 import java.util.List;
-import normas.Color;
-import normas.Movimiento;
-import tablero.Casilla;
-import tablero.Tablero;
+
+import objetos.Casilla;
+import objetos.Color;
+import objetos.Movimiento;
+import objetos.Tablero;
 
 /**
  * Clase padre que modela las piezas de ajedrez

@@ -2,10 +2,11 @@ package piezas;
 
 import java.util.ArrayList;
 import java.util.List;
-import normas.Color;
-import normas.Movimiento;
-import tablero.Casilla;
-import tablero.Tablero;
+
+import objetos.Casilla;
+import objetos.Color;
+import objetos.Movimiento;
+import objetos.Tablero;
 
 /**
  * 
