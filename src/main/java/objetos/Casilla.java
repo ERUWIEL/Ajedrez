@@ -1,6 +1,7 @@
 package objetos;
 
 import piezas.Pieza;
+import java.awt.Color;
 
 /**
  * 

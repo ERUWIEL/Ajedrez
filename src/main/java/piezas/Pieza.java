@@ -3,36 +3,40 @@ package piezas;
 import java.util.List;
 
 import objetos.Casilla;
-import objetos.Color;
 import objetos.Movimiento;
 import objetos.Tablero;
 
 /**
  * Clase padre que modela las piezas de ajedrez
+ * 
  * @author erwbiel
  */
 public abstract class Pieza {
 
     protected String nombre;
-    protected Color color;
-    protected Casilla posicion; // Casilla actual
+    protected Tipo tipoPieza;
+    protected Casilla posicion;
+    protected String iconoRuta;
 
     /**
      * Metodo constructor de la pieza
+     * 
      * @param nombre
      * @param color
-     * @param posicion 
+     * @param posicion
      */
-    public Pieza(String nombre, Color color, Casilla posicion) {
+    public Pieza(String nombre, Tipo tipoPieza, Casilla posicion) {
         this.nombre = nombre;
-        this.color = color;
+        this.tipoPieza = tipoPieza;
         this.posicion = posicion;
+        this.iconoRuta = "src/main/java/piezas/aspectos/" + nombre + "-" + tipoPieza.toString() + ".png";
     }
 
     /**
      * Método abstracto pieza define sus movimientos válidos
+     * 
      * @param grafo
-     * @return 
+     * @return
      */
     public abstract List<Movimiento> calcularMovimientosValidos(Tablero grafo);
 
@@ -46,7 +50,16 @@ public abstract class Pieza {
         return posicion;
     }
 
-    public Color getColor() {
-        return color;
+    public Tipo getColor() {
+        return tipoPieza;
     }
+
+    public String getIconoRuta() {
+        return iconoRuta;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
 }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import objetos.Casilla;
-import objetos.Color;
 import objetos.Movimiento;
 import objetos.Tablero;
 
@@ -14,8 +13,9 @@ import objetos.Tablero;
  */
 public class Reina extends Pieza {
 
-    public Reina(Color color, Casilla posicion) {
-        super("Reina", color, posicion);
+    public Reina(Tipo tipoPieza, Casilla posicion) {
+        super("Reina", tipoPieza, posicion);
+        
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Reina extends Pieza {
                 if (destino.piece == null) {
                     movimientos.add(new Movimiento(posicion, destino));
                 } else {
-                    if (destino.piece.color != this.color) {
+                    if (destino.piece.tipoPieza != this.tipoPieza) {
                         movimientos.add(new Movimiento(posicion, destino));
                     }
                     break; // Pieza bloqueando
@@ -42,4 +42,5 @@ public class Reina extends Pieza {
         }
         return movimientos;
     }
+
 }

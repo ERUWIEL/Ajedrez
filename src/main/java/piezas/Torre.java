@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import objetos.Casilla;
-import objetos.Color;
 import objetos.Movimiento;
 import objetos.Tablero;
 
@@ -15,8 +14,8 @@ import objetos.Tablero;
  */
 public class Torre extends Pieza{
 
-    public Torre(Color color, Casilla posicion) {
-        super("Torre", color, posicion);
+    public Torre(Tipo tipo, Casilla posicion) {
+        super("Torre", tipo, posicion);
     }
     
     @Override
@@ -32,7 +31,7 @@ public class Torre extends Pieza{
                 if (destino.piece == null) {
                     movimientos.add(new Movimiento(posicion, destino));
                 } else {
-                    if (destino.piece.color != this.color) {
+                    if (destino.piece.tipoPieza != this.tipoPieza) {
                         movimientos.add(new Movimiento(posicion, destino));
                     }
                     break; // Pieza bloqueando

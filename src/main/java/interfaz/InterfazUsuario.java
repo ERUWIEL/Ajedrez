@@ -5,8 +5,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import control.Control;
+import objetos.Casilla;
 import objetos.Movimiento;
 import objetos.Tablero;
+import piezas.Tipo;
+import piezas.Torre;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -14,12 +17,14 @@ import java.awt.FlowLayout;
 import java.util.List;
 
 public class InterfazUsuario extends JFrame{
+    
     /**
      * MetodoConstructor
      */
     public InterfazUsuario(){
         setSize(700, 900);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setTitle("(PIRATA VS MENCHO) THE FINAL BATTLE!");
         setLayout(new BorderLayout());
         initComponents();
     }
@@ -35,8 +40,10 @@ public class InterfazUsuario extends JFrame{
         add(pnl,BorderLayout.NORTH);
         
         //Panel central
-        //JPanel tablero = new JPanel(new GridLayout(8,8));
-        
+        Control ct = new Control();
+        ct.iniciarJuego();
+        JPanel tablero = ct.dibujaTablero();
+        add(tablero, BorderLayout.CENTER);
     }
 
     /**
@@ -44,15 +51,7 @@ public class InterfazUsuario extends JFrame{
      * @param args
      */
     public static void main(String[] args) {
-        //new InterfazUsuario().setVisible(true);
-        Control ct = new Control();
-        ct.iniciarJuego();
-        Tablero tablero = ct.getTablero();
-
-        List<Movimiento> movi = tablero.getSquare(7, 2).piece.calcularMovimientosValidos(tablero);
-        for (Movimiento move : movi){
-            System.out.printf("De (%d,%d) a (%d,%d)\n",move.from.row, move.from.col,move.to.row, move.to.col);
-        }
+        new InterfazUsuario().setVisible(true);
     }
 
 }

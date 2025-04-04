@@ -1,5 +1,6 @@
 package objetos;
 
+import java.awt.Color;
 import java.util.*;
 
 /**
@@ -19,13 +20,14 @@ public class Tablero {
         adjacencyList = new HashMap<>();
         inicializarTablero();
     }
+
     /**
      * Metodo para crear los recuadros intercalados
      */
     private void inicializarTablero() {
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
-                Color color = (row + col) % 2 == 0 ? Color.NEGRO : Color.BLANCO;
+                Color color = (row + col) % 2 == 0 ? Color.BLACK : Color.WHITE;
                 cuadros.add(new Casilla(row, col, color));
             }
         }
@@ -38,4 +40,5 @@ public class Tablero {
     public Casilla getSquare(int row, int col) {
         return cuadros.get(row * 8 + col);
     }
+
 }

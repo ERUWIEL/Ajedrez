@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import objetos.Casilla;
-import objetos.Color;
 import objetos.Movimiento;
 import objetos.Tablero;
 
@@ -16,14 +15,14 @@ public class Peon extends Pieza {
 
     private boolean primerMovimiento = true;
 
-    public Peon(Color color, Casilla posicion) {
-        super("Peón", color, posicion);
+    public Peon(Tipo tipoPieza, Casilla posicion) {
+        super("Peon", tipoPieza, posicion);
     }
 
     @Override
     public List<Movimiento> calcularMovimientosValidos(Tablero grafo) {
         List<Movimiento> movimientos = new ArrayList<>();
-        int direccion = (this.color == Color.BLANCO) ? -1 : 1; // Blancos avanzan hacia filas menores, negros hacia mayores
+        int direccion = (this.tipoPieza == Tipo.BLANCO) ? -1 : 1; // Blancos avanzan hacia filas menores, negros hacia mayores
 
         // Movimiento hacia adelante (1 o 2 casillas)
         int newRow = posicion.row + direccion;
@@ -48,7 +47,7 @@ public class Peon extends Pieza {
             newRow = posicion.row + direccion;
             if (esCasillaValida(newRow, col, grafo)) {
                 Casilla destino = grafo.getSquare(newRow, col);
-                if (destino.piece != null && destino.piece.color != this.color) {
+                if (destino.piece != null && destino.piece.tipoPieza != this.tipoPieza) {
                     movimientos.add(new Movimiento(posicion, destino));
                 }
             }

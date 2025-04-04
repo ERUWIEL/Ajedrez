@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import objetos.Casilla;
-import objetos.Color;
 import objetos.Movimiento;
 import objetos.Tablero;
 
@@ -18,8 +17,8 @@ public class Caballo extends Pieza {
      * @param color
      * @param posicion 
      */
-    public Caballo(Color color, Casilla posicion) {
-        super("Caballo", color, posicion);
+    public Caballo(Tipo tipoPieza, Casilla posicion) {
+        super("Caballo", tipoPieza, posicion);
     }
     
     /**
@@ -38,7 +37,7 @@ public class Caballo extends Pieza {
             int newCol = posicion.col + salto[1];
             if (esCasillaValida(newRow, newCol, grafo)) {
                 Casilla destino = grafo.getSquare(newRow, newCol);
-                if (destino.piece == null || destino.piece.color != this.color) {
+                if (destino.piece == null || destino.piece.tipoPieza != this.tipoPieza) {
                     movimientos.add(new Movimiento(posicion, destino));
                 }
             }

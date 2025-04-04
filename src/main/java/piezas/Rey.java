@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import objetos.Casilla;
-import objetos.Color;
 import objetos.Movimiento;
 import objetos.Tablero;
 
@@ -14,8 +13,8 @@ import objetos.Tablero;
  */
 public class Rey extends Pieza {
 
-    public Rey(Color color, Casilla posicion) {
-        super("Rey", color, posicion);
+    public Rey(Tipo tipoPieza, Casilla posicion) {
+        super("Rey", tipoPieza, posicion);
     }
 
     @Override
@@ -28,7 +27,7 @@ public class Rey extends Pieza {
             int col = posicion.col + dir[1];
             if (esCasillaValida(row, col, grafo)) {
                 Casilla destino = grafo.getSquare(row, col);
-                if (destino.piece == null || destino.piece.color != this.color) {
+                if (destino.piece == null || destino.piece.tipoPieza != this.tipoPieza) {
                     movimientos.add(new Movimiento(posicion, destino));
                 }
             }

@@ -3,8 +3,8 @@ package piezas;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import objetos.Casilla;
-import objetos.Color;
 import objetos.Movimiento;
 import objetos.Tablero;
 
@@ -14,8 +14,8 @@ import objetos.Tablero;
  */
 public class Alfil extends Pieza {
 
-    public Alfil(Color color, Casilla posicion) {
-        super("Alfil", color, posicion);
+    public Alfil(Tipo tipoPieza, Casilla posicion) {
+        super("Alfil", tipoPieza, posicion);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Alfil extends Pieza {
                 if (destino.piece == null) {
                     movimientos.add(new Movimiento(posicion, destino));
                 } else {
-                    if (destino.piece.color != this.color) {
+                    if (destino.piece.tipoPieza != this.tipoPieza) {
                         movimientos.add(new Movimiento(posicion, destino));
                     }
                     break; // Pieza bloqueando
